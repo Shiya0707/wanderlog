@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wanderlog | Travel Journal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                Wanderlog ✈️
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#trips">My Trips</a>
+                <a href="profile.html?user=Belsiya">Public Profile</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Explore. Remember. Share. 🌍
+            </h1>
+
+            <p>
+                Keep your travel memories in one beautiful place.
+                Add your trips, photos and experiences with Wanderlog.
+            </p>
+
+            <button class="primary-btn" onclick="openAddForm()">
+                + Add New Trip
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FORM SECTION -->
+    <section id="formSection" class="form-section">
+
+        <div class="form-card">
+
+            <div class="form-header">
+
+                <h2 id="formTitle">
+                    Add New Trip
+                </h2>
+
+                <button
+                    class="close-form"
+                    onclick="closeForm()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="tripForm">
+
+                <!-- DESTINATION -->
+                <label for="destination">
+                    Destination
+                </label>
+
+                <input
+                    type="text"
+                    id="destination"
+                    placeholder="Example: Ooty"
+                    required
+                >
+
+
+                <!-- COUNTRY -->
+                <label for="country">
+                    Country
+                </label>
+
+                <input
+                    type="text"
+                    id="country"
+                    placeholder="Example: India"
+                    required
+                >
+
+
+                <!-- DATE -->
+                <label for="date">
+                    Travel Date
+                </label>
+
+                <input
+                    type="date"
+                    id="date"
+                    required
+                >
+
+
+                <!-- DESCRIPTION -->
+                <label for="description">
+                    Description
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Write about your travel experience..."
+                    required
+                ></textarea>
+
+
+                <!-- IMAGE -->
+                <label for="image">
+                    Trip Cover Photo
+                </label>
+
+                <input
+                    type="file"
+                    id="image"
+                    accept="image/*"
+                >
+
+
+                <!-- PREVIEW -->
+                <div class="preview-container">
+
+                    <p id="previewMessage">
+                        📷 Your image preview will appear here
+                    </p>
+
+                    <img
+                        id="imagePreview"
+                        src=""
+                        alt="Trip Preview"
+                    >
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Save Trip
+                    </button>
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="closeForm()"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRIPS SECTION -->
+    <section id="trips" class="trips-section">
+
+        <div class="section-heading">
+
+            <h2>
+                My Travel Journal 🗺️
+            </h2>
+
+            <p id="tripCount">
+                0 trips
+            </p>
+
+        </div>
+
+
+        <!-- LOADING -->
+        <div
+            id="loadingState"
+            class="state-message"
+        >
+            Loading your trips...
+        </div>
+
+
+        <!-- TRIP CONTAINER -->
+        <div
+            id="tripContainer"
+            class="trip-container"
+        ></div>
+
+
+        <!-- EMPTY -->
+        <div
+            id="emptyState"
+            class="state-message"
+        >
+
+            <div class="empty-icon">
+                ✈️
+            </div>
+
+            <h3>
+                No trips yet
+            </h3>
+
+            <p>
+                Start your journey by adding your first trip.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="openAddForm()"
+            >
+                Add First Trip
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- DETAIL MODAL -->
+    <div
+        id="detailModal"
+        class="modal"
+    >
+
+        <div class="modal-box">
+
+            <button
+                class="modal-close"
+                onclick="closeDetail()"
+            >
+                ×
+            </button>
+
+            <div id="detailImageContainer"></div>
+
+            <div class="detail-content">
+
+                <h2 id="detailDestination">
+                </h2>
+
+                <p id="detailCountry">
+                </p>
+
+                <p id="detailDate">
+                </p>
+
+                <p id="detailDescription">
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Wanderlog | CodGen Internship
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Bank Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="overlay">
+
+<!-- HOME PAGE -->
+<div id="homePage" class="page">
+    <h1>🩸 BLOOD BANK MANAGEMENT SYSTEM 🩸</h1>
+
+    <button onclick="showPage('donorPage')">Donor Registration</button>
+    <button onclick="showPage('bloodPage')">Blood Availability Check</button>
+    <button onclick="showPage('adminLoginPage')">Admin Panel</button>
+</div>
+
+<!-- DONOR PAGE -->
+<div id="donorPage" class="page hidden">
+    <h2>Donor Registration</h2>
+
+    <input type="text" id="dName" placeholder="Name">
+    <input type="number" id="dAge" placeholder="Age">
+
+    <select id="dGender">
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+
+    <select id="dBlood">
+        <option>A+</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>B-</option>
+        <option>AB+</option>
+        <option>AB-</option>
+        <option>O+</option>
+        <option>O-</option>
+    </select>
+
+    <input type="text" id="dMobile" placeholder="Mobile Number">
+    <input type="text" id="dAddress" placeholder="Address">
+
+    <button onclick="registerDonor()">Register</button>
+    <button onclick="showPage('homePage')">⬅ Back</button>
+</div>
+
+<!-- BLOOD CHECK PAGE -->
+<div id="bloodPage" class="page hidden">
+    <h2>Blood Availability Check</h2>
+
+    <input type="text" id="pName" placeholder="Patient Name">
+    <input type="text" id="pMobile" placeholder="Mobile Number">
+
+    <select id="requiredBlood">
+        <option>A+</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>B-</option>
+        <option>AB+</option>
+        <option>AB-</option>
+        <option>O+</option>
+        <option>O-</option>
+    </select>
+
+    <button onclick="checkBlood()">Check Availability</button>
+
+    <h3 id="result"></h3>
+
+    <button onclick="showPage('homePage')">⬅ Back</button>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div id="adminLoginPage" class="page hidden">
+    <h2>Admin Login</h2>
+
+    <input type="text" id="adminUser" placeholder="Username">
+    <input type="password" id="adminPass" placeholder="Password">
+
+    <button onclick="adminAccess()">Login / Create Admin</button>
+    <button onclick="showPage('homePage')">⬅ Back</button>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPage" class="page hidden">
+
+    <h2>Admin Panel</h2>
+
+    <h3>Donor Records</h3>
+
+    <table id="donorTable">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Blood</th>
+            <th>Mobile</th>
+            <th>Address</th>
+        </tr>
+    </table>
+
+    <h3>Request History</h3>
+
+    <table id="requestTable">
+        <tr>
+            <th>Patient</th>
+            <th>Mobile</th>
+            <th>Blood</th>
+            <th>Status</th>
+        </tr>
+    </table>
+
+    <button onclick="logout()">Logout</button>
+    <button onclick="showPage('homePage')">⬅ Back</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

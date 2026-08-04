@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+.container{
+    width:95%;
+    max-width:900px;
+    text-align:center;
+}
+
+h1{
+    color:#fff;
+    font-size:3rem;
+    letter-spacing:3px;
+    margin-bottom:20px;
+    text-shadow:0 0 15px rgba(255,255,255,.3);
+}
+
+.status-area{
+    margin-bottom:20px;
+}
+
+#status{
+    color:#fff;
+    font-size:1.3rem;
+    font-weight:600;
+}
+
+.controls{
+    margin-bottom:20px;
+}
+
+button{
+    padding:12px 28px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#00b894;
+    color:#fff;
+    font-size:17px;
+    font-weight:600;
+    transition:.3s;
+}
+
+button:hover{
+    background:#00d8a7;
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+#board{
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(7,85px);
+    grid-template-rows:repeat(6,85px);
+    gap:10px;
+    background:#1565c0;
+    padding:15px;
+    border-radius:20px;
+    width:max-content;
+    box-shadow:0 20px 45px rgba(0,0,0,.4);
+}
+
+.cell{
+    width:85px;
+    height:85px;
+    background:#fff;
+    border-radius:50%;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.cell:hover{
+    transform:scale(1.05);
+}
+
+.red{
+    background:#ff3b30;
+    animation:drop .3s ease;
+}
+
+.yellow{
+    background:#ffd60a;
+    animation:drop .3s ease;
+}
+
+.win{
+    box-shadow:0 0 20px #00ff95,
+               0 0 40px #00ff95;
+}
+
+@keyframes drop{
+
+    0%{
+        transform:translateY(-60px);
+        opacity:0;
+    }
+
+    100%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
+
+@media(max-width:700px){
+
+#board{
+
+grid-template-columns:repeat(7,48px);
+grid-template-rows:repeat(6,48px);
+gap:6px;
+
+}
+
+.cell{
+
+width:48px;
+height:48px;
+
+}
+
+h1{
+
+font-size:2rem;
+
+}
+
+#status{
+
+font-size:1rem;
+
+}
+
+button{
+
+padding:10px 20px;
+font-size:15px;
+
+}
+
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise For Sajin</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+overflow:hidden;
+background:black;
+color:white;
+}
+
+/* QR PAGE */
+
+#qrPage{
+width:100vw;
+height:100vh;
+background:url("1000200711.jpg") center center/cover no-repeat;
+position:relative;
+}
+
+.overlay{
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:flex-end;
+padding-right:50px;
+}
+
+.qr{
+width:250px;
+height:250px;
+background:white;
+padding:10px;
+border-radius:15px;
+cursor:pointer;
+box-shadow:0 0 25px white;
+}
+
+.scanText{
+margin-top:20px;
+font-size:24px;
+font-weight:bold;
+}
+
+/* HAPPY BIRTHDAY PAGE */
+
+#birthdayPage{
+display:none;
+width:100vw;
+height:100vh;
+background:black;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+#birthdayPage h1{
+font-size:60px;
+color:gold;
+text-align:center;
+text-shadow:0 0 20px gold;
+animation:zoom 1s infinite alternate;
+}
+
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.08);}
+}
+
+/* SCANNER PAGE */
+
+#scannerPage{
+display:none;
+width:100vw;
+height:100vh;
+background:black;
+position:relative;
+}
+
+.scanner-line{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:6px;
+background:#00ff66;
+box-shadow:0 0 30px #00ff66;
+animation:scan 4s linear forwards;
+}
+
+@keyframes scan{
+0%{top:0;}
+100%{top:100%;}
+}
+
+.scanning{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:40px;
+color:#00ff66;
+font-weight:bold;
+}
+
+/* MESSAGE PAGE */
+
+#messagePage{
+display:none;
+width:100vw;
+height:100vh;
+overflow:auto;
+background:black;
+padding:30px;
+text-align:center;
+}
+
+#messagePage h1{
+font-size:50px;
+color:gold;
+margin-bottom:30px;
+text-shadow:0 0 15px gold;
+}
+
+.message{
+max-width:900px;
+margin:auto;
+font-size:24px;
+line-height:2;
+}
+
+.footer{
+margin-top:30px;
+font-size:28px;
+color:#00ff66;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- QR PAGE -->
+
+<div id="qrPage">
+
+<div class="overlay">
+
+<img
+class="qr"
+src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=Happy%20Birthday%20Sajin"
+onclick="startBirthday()">
+
+<div class="scanText">
+📱 Scan QR Code
+</div>
+
+</div>
+
+</div>
+
+<!-- HAPPY BIRTHDAY PAGE -->
+
+<div id="birthdayPage">
+
+<h1>
+🎉 HAPPY BIRTHDAY SAJIN 🎉
+</h1>
+
+</div>
+
+<!-- SCANNER PAGE -->
+
+<div id="scannerPage">
+
+<div class="scanner-line"></div>
+
+<div class="scanning">
+SCANNING...
+</div>
+
+</div>
+
+<!-- MESSAGE PAGE -->
+
+<div id="messagePage">
+
+<h1>🎂 HAPPY BIRTHDAY SAJIN 🎂</h1>
+
+<div class="message">
+
+💫 Nee enaku unexpected ah kedaicha nee ye life long ennota friend ah varanum.
+<br><br>
+
+🎉 Unota career success ellathaiyu naa paakkanum.
+<br><br>
+
+😊 Nee happy ah irukkathaiyu naa paakkanum.
+<br><br>
+
+❤️ Happy ah iru da ethukku feel pannatha.
+<br><br>
+
+🚀 Enjoy your own life.
+<br><br>
+
+🧬 Un life la nee nenacha ella dreams-um achieve pannanum.
+<br><br>
+
+🤝 Namma friendship ippadiye eppovum irukkanum.
+<br><br>
+
+✨ Many More Happy Returns Of The Day ✨
+
+</div>
+
+<div class="footer">
+🎉 HAVE A WONDERFUL YEAR AHEAD 🎉
+</div>
+
+</div>
+
+<script>
+
+function startBirthday(){
+
+document.getElementById("qrPage").style.display="none";
+
+document.getElementById("birthdayPage").style.display="flex";
+
+setTimeout(function(){
+
+document.getElementById("birthdayPage").style.display="none";
+
+document.getElementById("scannerPage").style.display="block";
+
+},5000);
+
+setTimeout(function(){
+
+document.getElementById("scannerPage").style.display="none";
+
+document.getElementById("messagePage").style.display="block";
+
+},9000);
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+let trips = JSON.parse(localStorage.getItem("trips")) || [
+    {
+        id: 1,
+        destination: "Paris",
+        country: "France",
+        date: "2026-08-10",
+        description: "Explore Eiffel Tower and beautiful places",
+        image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34"
+    },
+    {
+        id: 2,
+        destination: "Tokyo",
+        country: "Japan",
+        date: "2026-09-15",
+        description: "Experience Japanese culture",
+        image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf"
+    }
+];
+
+
+function displayTrips(){
+
+    let container = document.getElementById("tripContainer");
+
+    container.innerHTML = "";
+
+    trips.forEach(trip => {
+
+        container.innerHTML += `
+        <div class="card">
+
+            <img src="${trip.image}">
+
+            <h2>${trip.destination}</h2>
+
+            <p>${trip.country}</p>
+
+            <p>${trip.date}</p>
+
+            <p>${trip.description}</p>
+
+            <button onclick="deleteTrip(${trip.id})">
+                Delete
+            </button>
+
+        </div>
+        `;
+    });
+}
+
+
+function deleteTrip(id){
+
+    trips = trips.filter(trip => trip.id !== id);
+
+    localStorage.setItem("trips", JSON.stringify(trips));
+
+    displayTrips();
+}
+
+
+displayTrips();
+function addTrip(){
+
+    let newTrip = {
+        id: Date.now(),
+        destination: document.getElementById("destination").value,
+        country: document.getElementById("country").value,
+        date: document.getElementById("date").value,
+        description: document.getElementById("description").value,
+        image: document.getElementById("image").value
+    };
+
+
+    trips.push(newTrip);
+
+    localStorage.setItem("trips", JSON.stringify(trips));
+
+    displayTrips();
+
+
+    document.getElementById("destination").value = "";
+    document.getElementById("country").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("description").value = "";
+    document.getElementById("image").value = "";
+}
